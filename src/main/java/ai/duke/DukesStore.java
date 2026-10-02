@@ -16,15 +16,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @ApplicationScoped
-public class AnswerStore {
+public class DukesStore {
 
-    private final Map<String, String> answers = new ConcurrentHashMap<>();
+    private final Map<String, String> responses = new ConcurrentHashMap<>();
 
-    public void put(String question, String answer) {
-        answers.put(question, answer);
+    public void put(String prompt, String response) {
+        responses.put(prompt, response);
     }
 
-    public String get(String question) {
-        return answers.get(question);
+    public String get(String message) {
+        return responses.get(message);
     }
 }

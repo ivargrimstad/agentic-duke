@@ -10,7 +10,6 @@
 
 package ai.duke;
 
-import jakarta.ai.agent.LargeLanguageModel;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.event.Event;
 import jakarta.inject.Inject;
@@ -28,7 +27,7 @@ public class DukesAIResource {
     private Event<Message> messageEvent;
 
     @Inject
-    private AnswerStore answerSore;
+    private DukesStore answerSore;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)

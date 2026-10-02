@@ -23,32 +23,32 @@ public class DukesAgent {
     private LargeLanguageModel model;
 
     @Inject
-    private AnswerStore answerStore;
+    private DukesStore dukesStore;
 
     @Trigger
-    public void analyzeEvent(@Valid Message message) {
+    public void analyzeEvent(@Valid Message prompt) {
         System.out.println("DukesAgent analyzeEvent");
     }
 
     @Decision
-    public Result proceed(Message message) {
+    public Result proceed(Message prompt) {
 
         System.out.println("DukesAgent proceed");
         return new Result(true, "Looks good to me");
     }
 
     @Action
-    public Answer doStuff(Message message) {
+    public Answer doStuff(Message prompt) {
 
         System.out.println("DukesAgent doStuff");
-        return new Answer(model.query(message.message()));
+        return new Answer(model.query(prompt.prompt()));
     }
 
     @Outcome
-    public void finalizeResponse(Message message, Answer answer) {
+    public void finalizeResponse(Message prompt, Answer response) {
 
         System.out.println("DukesAgent finalizeResponse");
-        answerStore.put(message.message(),answer.message());
+        dukesStore.put(prompt.prompt(),response.message());
     }
 
 }
