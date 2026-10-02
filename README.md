@@ -13,3 +13,8 @@ Compile and run the application
 ```
 mvn clean package payara-micro:start
 ```
+
+Test the endpoint (using https://httpie.io)
+```
+http :8080/agentic-duke/ai message=='Tell me about white peking ducks'
+```
