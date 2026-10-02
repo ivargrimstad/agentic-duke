@@ -1,15 +1,5 @@
 package ai.duke;
 
-import jakarta.enterprise.context.RequestScoped;
+public record Answer(String message) {
 
-@RequestScoped
-public class Answer {
-
-    private String message;
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {}
 }
