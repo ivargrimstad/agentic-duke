@@ -32,23 +32,22 @@ public class DukesAgent {
 
     @Decision
     public Result proceed(Message message) {
+
         System.out.println("DukesAgent proceed");
         return new Result(true, "Looks good to me");
     }
 
     @Action
     public Answer doStuff(Message message) {
+
         System.out.println("DukesAgent doStuff");
-        String result = model.query(message.message());
-        System.out.println(result);
-        return new Answer(result);
+        return new Answer(model.query(message.message()));
     }
 
     @Outcome
     public void finalizeResponse(Message message, Answer answer) {
-        System.out.println("DukesAgent finalizeResponse");
-        System.out.println(answer.message()) ;
 
+        System.out.println("DukesAgent finalizeResponse");
         answerStore.put(message.message(),answer.message());
     }
 
