@@ -23,7 +23,7 @@ public class DukesAgent {
     @Decision
     public Result proceed(Message message) {
         System.out.println("DukesAgent proceed");
-        return new Result(true, message);
+        return new Result(true, "Looks good to me");
     }
 
     @Action
