@@ -31,23 +31,30 @@ public class DukesAgent {
     }
 
     @Decision
-    public Result proceed(Message prompt) {
+    public Result checkDucks(Message prompt) {
 
-        System.out.println("DukesAgent proceed");
-        return new Result(true, "Looks good to me");
+        System.out.println("Check for inappropriate joke");
+
+        boolean validPrompt =  !prompt.prompt().toLowerCase().contains("ducks");
+
+        return new Result(validPrompt, "How dare you joke about ducks?");
     }
 
     @Action
-    public Answer doStuff(Message prompt) {
+    public Answer getJoke(Message prompt) {
 
         System.out.println("DukesAgent doStuff");
-        return new Answer(model.query(prompt.prompt()));
+
+        final String response = model.query(prompt.prompt());
+
+        return new Answer(response);
     }
 
     @Outcome
     public void finalizeResponse(Message prompt, Answer response) {
 
         System.out.println("DukesAgent finalizeResponse");
+
         dukesStore.put(prompt.prompt(),response.message());
     }
 
