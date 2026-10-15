@@ -43,7 +43,7 @@ public class DukesAgent {
     @Action
     public Answer getJoke(Message prompt) {
 
-        System.out.println("DukesAgent doStuff");
+        System.out.println("DukesAgent getJoke");
 
         final String response = model.query(prompt.prompt());
 
