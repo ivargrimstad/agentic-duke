@@ -27,7 +27,7 @@ public class DukesAIResource {
     private Event<Message> messageEvent;
 
     @Inject
-    private DukesStore answerSore;
+    private DukesStore answerStore;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -35,7 +35,6 @@ public class DukesAIResource {
         System.out.println("DukesAgent callAI");
         messageEvent.fire(new Message(message));
 
-        System.out.println("DukesAgent callAI result= " + answerSore.get(message));
-        return answerSore.get(message);
+        return answerStore.get(message);
     }
 }
