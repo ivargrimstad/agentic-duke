@@ -31,7 +31,7 @@ public class DukesAgent {
     }
 
     @Decision
-    public Result checkDucks(Message prompt) {
+    public Result checkJoke(Message prompt) {
 
         System.out.println("Check for inappropriate joke");
 
